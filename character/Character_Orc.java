@@ -19,12 +19,12 @@ public class Character_Orc{
 		return orc.getSpeak();
 	}
 	
-	public String getUserOrc(){  
+	public String getUser(){  
 		orc.setName("Orc");             
 		return orc.getName();
 	}
 	
-	public int getOrcHealth(){		
+	public int getHealth(){		
 		orc.setHealth(100);
 		return orc.getHealth();
 	}	

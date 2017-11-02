@@ -1,7 +1,7 @@
 package character;
 public class Character_Class  {
 	private int health,damage,magic,defense,boost, weapon_damage,armor;
-	private int intelligence,speed,strength;
+	private int intelligence,speed,strength, resistance;
 	private String name,speak;
 	public Character_Class(){   //These are the defaults stats, just in case I didn't set one up 
 		health = 100;        // in the main_Class.
@@ -14,6 +14,7 @@ public class Character_Class  {
 		intelligence = 0;
 		speed = 0;
 		strength = 0;
+		resistance = 0;
 		speak = "";
 	}
 	
@@ -51,14 +52,17 @@ public class Character_Class  {
 		this.name = usr;
 	}
 	
-	public void setSpeed(int spd) {
+	public void setSpeed(int spd){
 		this.speed = spd;
 	}
 	
-	public void setStrength(int strnth) {
+	public void setStrength(int strnth){
 		this.strength = strnth;
 	}
 	
+	public void setResistance(int resist){
+		this.resistance = resist;
+	}
 	
 	public void setSpeak(String s){
 		this.speak = s;
@@ -100,6 +104,10 @@ public class Character_Class  {
 	
 	public int getStrength(){
 		return strength;
+	}
+	
+	public int getResistance() {
+		return resistance;
 	}
 	
 	public int getIntelligence(){

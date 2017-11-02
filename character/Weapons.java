@@ -34,10 +34,6 @@ public class Weapons  {
 		return weapon.getDamage();
 	}
 	
-	public int getSword_Weight(){
-		weapon.setWeight(6);
-		return weapon.getWeight();
-	}
 	
 	public String getSword_Name(){
 		return "Sword";
