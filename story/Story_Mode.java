@@ -37,7 +37,7 @@ public class Story_Mode {
 			speak = character.getSpeak();
 			speak2 = character.getSpeak2();
 			speak3 = character.getSpeak3();
-			health = character.getHealthWarrior();
+			health = character.getHealth();
 			System.out.println(speak); //I am Warrior!
 			System.out.println(speak3+" "+health+" Health"); //I have 120 health.
 			
@@ -54,7 +54,7 @@ public class Story_Mode {
 			speak = character.getSpeak();
 			speak2 = character.getSpeak2();
 			speak3 = character.getSpeak3();
-			health = character.getOrcHealth();
+			health = character.getHealth();
 			System.out.println(speak);
 			System.out.println(speak3+" "+health+" Health");
 			

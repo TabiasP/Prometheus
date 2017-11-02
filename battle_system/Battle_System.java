@@ -19,6 +19,11 @@ public class Battle_System {
 		private int magic, enemy_health, magic_options, physical_options, damage, melee, character_health, boost;
 		//private int sword_attack_left=5,punch_attack_left=5;
 		
+		/*
+		 * We should re-adjust the entire battle system 
+		 * 
+		 * */
+		
 		public void battleSystem(int choice){
 			@SuppressWarnings("resource")
 			Scanner input = new Scanner(System.in);
@@ -29,13 +34,13 @@ public class Battle_System {
 			//boolean temp;
 			if(choice == 1){
 				Character_Warrior character  = new Character_Warrior();
-				character_health = character.getHealthWarrior();
-				user = character.getUserWarrior();
+				character_health = character.getHealth();
+				user = character.getUser();
 			}
 			else if(choice == 2){
 				Character_Orc character = new Character_Orc();
-				character_health = character.getOrcHealth();
-				user = character.getUserOrc();
+				character_health = character.getHealth();
+				user = character.getUser();
 			}
 				
 			
@@ -45,7 +50,7 @@ public class Battle_System {
 			 * enemyName is assigned to the same thing as enemy.*/
 			
 			String [] eName ={enemy.getGruntName(),enemy.getGoblinName(),enemy.getTrollsName(),enemy.getScorpionName(),enemy.getHalflingName()};		
-			int [] selection = {enemy.getGruntHealth(),enemy.getGoblinHealth(),enemy.getTrollsHealth(),enemy.getScorpionHealth(),enemy.getHalfling()};
+			int [] selection = {enemy.getGruntHealth(),enemy.getGoblinHealth(),enemy.getTrollHealth(),enemy.getScorpionHealth(),enemy.getHalflingHealth()};
 			for(int counter = 0; counter < 1;counter++){
 				int rand = (int) (Math.random() * selection.length);
 				enemy_health = selection[rand];

@@ -16,21 +16,43 @@ public class Enemy_Class {
 		
 	}
 	
-	public int getHalfling(){ 	//The get and setter method for my Halfling. 
+	public int getHalflingHealth(){ 	        //The get and setter method for my Halfling. 
 		enemy.setHealth(90);
 		return enemy.getHealth();
 		
 	}
 	
-	public int getTrollsHealth(){	//The get and setter method for my Troll. 
+	public int getSirenHealth(){	      	//Siren getter and setter method.
+		enemy.setHealth(90);
+		return enemy.getHealth();
+	}
+	
+	public int getTrollHealth(){	   //The get and setter method for my Troll. 
 		enemy.setHealth(100);
 		return enemy.getHealth();
 	}
 	
-	public int getScorpionHealth(){ 	//The get and setter method for my Scorpion. 
+	public int getScorpionHealth(){ 	     //The get and setter method for my Scorpion. 
 		enemy.setHealth(110);
 		return enemy.getHealth();
 	}
+	
+	public int getShapeshifterHealth(){    //Shapeshifter getter and setter method.
+		enemy.setHealth(120);
+		return enemy.getHealth();
+	}
+	
+	public int getGiantHealth(){			 //Giant getter and setter method.
+		enemy.setHealth(150);
+		return enemy.getHealth();
+	}
+	
+	public int getNecromancerHealth(){    //Necromancer getter and setter method.
+		enemy.setHealth(200);
+		return enemy.getHealth();
+	}
+	
+	
 	/*End of each get and setter method for health of each enemy. */
 	
 	/*Everything below is the get and setter methods for each enemy name. */

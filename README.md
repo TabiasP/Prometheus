@@ -29,22 +29,53 @@ Additional packages included for functionality of the game:
 * Enemy
 * Battle System
 
-##Characters
+## Characters
 There should be additional characters alongside the Warrior and Orc for users to choose from. These are Wizard, Dwarf, Elf. Each character including the choosable and the enemies will have their own set of unique attributes set on a scale from 0 to 200. (The base attributes will be 0-100, but the scale to 200 allows for upgrades.) 
- /* Base	Character Attributes:		Warrior		Orc		Wizard		Dwarf		Elf
-		damage =                       50		60		60			40			60
-		magic =                        20		30		100			30			60
-		defense =                      50		80		10			50			40							
-		boost =                        50		50		50			50			50
-		weapon_damage =                60		80		40			60			60
-		armor =                        50		70		20			50			70
-		intelligence =                 50		10		100			30			80
-		speed =                        70		20		50			50			80			
-		strength =                     60		90		40			60			60*/
+
+Base Attributes for each user character:
+ 
+Warrior: | damage: 50 | magic: 20  | defense: 50 | boost: 50 | weapon damage: 60 | armor: 50 | intelligence: 50  | speed: 70 | resistance: 60 | strength: 60 |
+
+----  Orc:   |  damage: 60 | magic: 30  | defense: 80 | boost: 50 | weapon damage: 80 | armor: 70 | intelligence: 10  | speed: 20 | resistance: 30 | strength: 90 |
+
+Wizard: |  damage: 60 | magic: 100 | defense: 10 | boost: 50 | weapon damage: 40 | armor: 20 | intelligence: 100 | speed: 50 | resistance: 60 | strength: 40 |
+
+-Dwarf:  | damage: 40 | magic: 30  | defense: 70 | boost: 50 | weapon damage: 60 | armor: 50 | intelligence:  30 | speed: 50 | resistance: 50 | strength: 60 |
+
+-----Elf:   |  damage: 60 | magic: 60 | defense:  40 | boost: 50 | weapon damage: 60 | armor: 70 | intelligence:  80 | speed: 80 | resistance: 40 | strength: 60 |
+  
+ 
 		
 A new class should be created for each character, and will derive from the character class. 
 
 Damage level will be affected by the character intelligence, speed, and magic. 
+
+## Enemies
+
+There are various enemies. each enemy will have it's own class, deriving from the base character class. 
+There is a grunt, goblin, halfling, siren, troll, scorpion, shapeshifter, giant, and necromancer. Each enemy will be given attributes, similar to the choosable characters. All of the enemies will have their strengths and weaknesses against whatever character is chosen. for example, The Grunt is the weakest enemy, susceptible to all attacks physical or magical, and the siren is strong against magic but very weak against physical attacks.
+
+Base Attributes for each enemy:
+ 
+Grunt: | damage: 20 | magic: 20  | defense: 20 | boost: 20 | weapon damage: 20 | armor: 20 | intelligence: 20  | speed: 20 | resistance: 30 | strength: 20 |
+
+Goblin:  |  damage: 40 | magic: 30  | defense: 50 | boost: 30 | weapon damage: 50 | armor: 40 | intelligence: 60  | speed: 40 | resistance: 40 | strength: 40 |
+
+Halfling: |  damage: 60 | magic: 40 | defense: 40 | boost: 50 | weapon damage: 40 | armor: 20 | intelligence: 50 | speed: 50 | resistance: 80 | strength: 40 |
+
+Siren:  | damage: 100 | magic: 100  | defense: 20 | boost: 50 | weapon damage: 60 | armor: 30 | intelligence:  100 | speed: 80 | resistance: 100 | strength: 40 |
+
+Troll:   |  damage: 70 | magic: 60 | defense:  90 | boost: 50 | weapon damage: 60 | armor: 70 | intelligence:  30 | speed: 40 | resistance: 110 | strength: 140 |
+
+Scorpion:   |  damage: 100 | magic: 60 | defense:  160 | boost: 50 | weapon damage: 60 | armor: 140 | intelligence:  60 | speed: 110 | resistance: 180 | strength: 100 |
+
+Shapeshifter:   |  damage: 120 | magic: 60 | defense:  150 | boost: 50 | weapon damage: 60 | armor: 70 | intelligence:  180 | speed: 100 | resistance: 150 | strength: 80 |
+
+Giant:   |  damage: 160 | magic: 60 | defense:  190 | boost: 50 | weapon damage: 100 | armor: 200 | intelligence:  10 | speed: 30 | resistance: 80 | strength: 190 |
+
+Necromancer:   |  damage: 200 | magic: 200 | defense:  140 | boost: 170 | weapon damage: 190 | armor: 130 | intelligence:  200 | speed: 80 | resistance: 200 | strength: 190 |
+  
+
 
 
 ##Tournament Activity
