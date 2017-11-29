@@ -8,13 +8,8 @@ public class Character_Dwarf extends Character_Class {
 	public Character_Dwarf() {   
 		super.name = "Dwarf";
 		super.health = 100;
-		super.damage = 40;
 		super.magic = 30;
-		super.defense = 50;
-		super.boost = 50;
-		super.weapon_damage = 60;
 		super.armor = 50;
-		super.intelligence = 30;
 		super.speed = 50 ;
 		super.strength = 60;
 		super.resistance = 50;

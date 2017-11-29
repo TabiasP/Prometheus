@@ -31,7 +31,7 @@ public class Main_Class  {
 		Character_Class player = Character_Select.character_Select();
 	    while(true){
 			try{
-			System.out.println("Please select a mode: Story Mode(1) | Shopping(2) | Tournament(3) | Exit(4)");
+			System.out.println("Please select a mode: Story Mode(1) | Shopping(2) | Wager(3) | Exit(4)");
 			response = input.nextInt();
 			if (response >=1 && response <= 4){	
 				if(response == 1){
@@ -41,7 +41,7 @@ public class Main_Class  {
 				    shopping.store(player);
 			    }
 			    else if(response == 3){
-				    tournament.fight(player);
+				    tournament.Gamble(player);
 			    }
 			    else if(response == 4){
 				    System.out.println("Thanks for playing");

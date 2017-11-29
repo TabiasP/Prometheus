@@ -8,11 +8,9 @@ public class Character_Select {
 	static Scanner input = new Scanner(System.in);
 
 	public static Character_Class character_Select(){
-		
-		/*Here I am asking you which character you would like to be. */
 		while (true) {
 			try{
-				System.out.println("Which character class would you like to play as for this session?:"
+				System.out.println("Which character would you like to play as for this session?:"
 					+ "\n\t1.) Warrior"
 					+ "\n\t2.) Orc"
 					+ "\n\t3.) Wizard"
@@ -30,29 +28,41 @@ public class Character_Select {
 					}input.nextLine();
 			}
 			if(response == 1) {
+				
 				Character_Warrior character = new Character_Warrior();
-				System.out.println("You have chosen to be a Warrior");
-				return character;
+				displayCharacter(character);
+				if(confirmCharacter()){
+					return character;
+				}
+				
 			}
 			else if(response == 2) {
 				Character_Orc character = new Character_Orc();
-				System.out.println("You have chosen to be an Orc");
-				return character;
+				displayCharacter(character);
+				if(confirmCharacter()){
+					return character;
+				}
 			}
 			else if(response == 3) {
 				Character_Wizard character = new Character_Wizard();
-				System.out.println("You have chosen to be a Wizard");
-				return character;
+				displayCharacter(character);
+				if(confirmCharacter()){
+					return character;
+				}
 			}
 			else if(response == 4) {
 				Character_Elf character = new Character_Elf();
-				System.out.println("You have chosen to be an Elf");
-				return character;
+				displayCharacter(character);
+				if(confirmCharacter()){
+					return character;
+				}
 			}
 			else if(response == 5) {
 				Character_Dwarf character = new Character_Dwarf();
-				System.out.println("You have chosen to be a Dwarf");
-				return character;
+				displayCharacter(character);
+				if(confirmCharacter()){
+					return character;
+				}
 			}
 			else {
 				System.out.println("Invalid Response. Please enter a number from the list above.");
@@ -60,4 +70,53 @@ public class Character_Select {
 				}
 			return null;
 			}
+	
+	       private static boolean confirmCharacter() {
+	    	   boolean character = false;
+	    		System.out.println("Would you like to continue with the character?Y/N");
+			    String confirm_flag = input.next();	
+			    if(confirm_flag.equalsIgnoreCase("Y")){				    	
+			    	character= true;
+			    }else  if(confirm_flag.equalsIgnoreCase("N")){				    	
+			    	character_Select();
+			    }else{
+			    	System.out.println("Please enter a valid inputY/N");
+			    	   confirm_flag = input.next();	
+			    	   if(confirm_flag.equalsIgnoreCase("Y")){				    	
+			    		   character= true;
+					    }else  if(confirm_flag.equalsIgnoreCase("N")){				    	
+					    	character_Select();
+					    }
+			    }
+				
+				return character;
+		
+		
+	}
+
+		public static void displayCharacter (Character_Class player){			
+		
+		    System.out.println("You have chosen to be " + player.getName());
+		    if (player != null){	
+		    System.out.println ("You start out at Level " + player.getLevel() + " and you have $" + player.getMoney() + " in your backpack.");
+		    System.out.println ("\n-----------------------------");
+		    System.out.println ("Character Traits");
+		    System.out.println ("-------------------------------");
+		    System.out.format("%10s%15s%15s", "Speed", "Strength", "Health");
+		    System.out.println ("");		    		   
+		    System.out.format ("%10s%15s%15s", "" + player.getSpeed(), player.getStrength(), ""+ player.getHealth());
+		    System.out.println ("");
+		    System.out.format("%10s%15s%15s", "Armor", "Resistance", "Magic");
+		    System.out.println ("");		       
+		    System.out.format ("%10s%15s%15s", "" + player.getArmor(), player.getResistance(), player.getMagic());
+		    System.out.println ("");	
+		    System.out.println ("\n-----------------------------");
+		    System.out.println ("Weapons");
+		    System.out.println ("-----------------------------");
+		    System.out.format("Primary weapon: " + player.getPrimaryWeapon() + "\n Damage: " + player.getPrimaryWeaponDamage());
+		    System.out.println ("");		       
+		    System.out.format ("Secondary weapon: " + player.getSecondaryWeapon() + "\n Damage " + player.getSecondaryWeaponDamage());
+		    System.out.println ("");		    System.out.println ("");
+		    }
+	      }
 		}

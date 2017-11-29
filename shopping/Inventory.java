@@ -8,13 +8,14 @@ public class Inventory{
     /**
      * Constructor for Inventory
      * with a default backpack size of 25
+     * Start with 1 Rusty Axe & 3 Health potions
      */
     public Inventory(){
         backpackSize = 25;
         backpack.add("Rusty Axe Weapon");
         backpack.add("1");
-     //   backpack.add("Punch");
-     //   backpack.add("1");
+        backpack.add("Health Potion");
+        backpack.add("3");
     }
 
     /**
@@ -91,19 +92,16 @@ public class Inventory{
      * @throws Exception
      */
     public String selectWeapon(int index) throws Exception {
-		if(index >= 1) {
-			String weapName = backpack.get(index-1);
-			if(weapName.endsWith("Weapon")) {
-				return weapName;
-			}
-			else {
-				System.out.println(weapName+" is not a weapon.");
-			}
+		int formula = (2*(index)-2);//Formula I figured out to account for the stacking
+		String weapName = backpack.get(formula);
+		if(weapName.endsWith("Weapon")) {
+			System.out.println(weapName+" equipped");
+			return weapName;
 		}
 		else {
-			System.out.println("Not a valid option\n");
+			System.out.println(weapName+" is not a weapon.");
 		}
-		return "Rusty Axe";
+		return "Rusty Axe Weapon";
     }
     /**
      * Method to add items to Inventory
@@ -151,20 +149,104 @@ public class Inventory{
 
     /**
      * Method to view Inventory
+     * @param sort - 1 = Default (Weapons, Items)
+     * 				 2 = Weapons Only
+     * 				 3 = Items Only
      */
     public void viewInventory(){
-        int counter = 0;
+        int //weapCounter = 0,
+        //	itemCounter = 0,
+        //	displayWeapon = 0,
+        	counter = 0;
+       // 	displayItems = 0;
         if(backpack.size() < 1) {
         	System.out.println("No Items in backpack!\n");
         }
         else {
-	        for(int i=0; i<backpack.size(); i+=2){
+        	for(int i=0; i<backpack.size(); i+=2){
 	            counter++;
 	            System.out.println(counter+".) "+backpack.get(i)+"("+backpack.get(i+1)+")");
+        	
 	            if((i+1) == (backpack.size()-1)) {
 	            	System.out.println();
 	            }
 	        }
+        	
+        	/*Default sort (Show Weapons, Items)
+        	if(sort == 1) {
+	        	//Weapon sort display
+	        	for(int i=0; i<backpack.size(); i+=2){
+		            String itName = backpack.get(i);
+		            if(itName.endsWith("Weapon")) {
+		            	if(displayWeapon == 0) {
+		            		displayWeapon=1;
+		            		System.out.println("Weapons:");
+		            	}
+		            	if(displayWeapon == 1) {
+		            		weapCounter++;
+		            		System.out.println(weapCounter+".) "+backpack.get(i)+"("+backpack.get(i+1)+")");
+		            	}
+		            }
+		            if((i+1) == (backpack.size()-1)) {
+		            	System.out.println();
+		            }
+		        }
+		      //Item sort display
+		        for(int i=0; i<backpack.size(); i+=2){
+		        	String itName = backpack.get(i);
+		        	if(!(itName.endsWith("Weapon"))) {
+			           	if(displayItems == 0) {
+			           		displayItems=1;
+			           		System.out.println("Items:");
+			           	}
+			           	if(displayItems == 1) {
+			           		itemCounter++;
+			           		System.out.println(itemCounter+".) "+backpack.get(i)+"("+backpack.get(i+1)+")");
+			           	}
+			        }
+			        if((i+1) == (backpack.size()-1)) {
+			           	System.out.println();
+			        }
+		        }
+        	}
+		    //Weapon only display
+		    if(sort == 2) {
+		    	for(int i=0; i<backpack.size(); i+=2){
+		            String itName = backpack.get(i);
+		            if(itName.endsWith("Weapon")) {
+		            	if(displayWeapon == 0) {
+		            		displayWeapon=1;
+		            		System.out.println("Weapons:");
+		            	}
+		            	if(displayWeapon == 1) {
+		            		weapCounter++;
+		            		System.out.println(weapCounter+".) "+backpack.get(i)+"("+backpack.get(i+1)+")");
+		            	}
+		            }
+		            if((i+1) == (backpack.size()-1)) {
+		            	System.out.println();
+		            }
+		        }
+		    }
+		    //Items only display
+		    if(sort == 3) {
+		    	for(int i=0; i<backpack.size(); i+=2){
+		            String itName = backpack.get(i);
+		            if(!(itName.endsWith("Weapon"))) {
+		            	if(displayItems == 0) {
+			           		displayItems=1;
+			           		System.out.println("Items:");
+			           	}
+			           	if(displayItems == 1) {
+			           		itemCounter++;
+			           		System.out.println(itemCounter+".) "+backpack.get(i)+"("+backpack.get(i+1)+")");
+			           	}
+		            }
+		            if((i+1) == (backpack.size()-1)) {
+		            	System.out.println();
+		            }
+		        }
+		    }*/
         }
     }
 }

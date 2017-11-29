@@ -8,13 +8,8 @@ public class Character_Warrior extends Character_Class {
 		public Character_Warrior() {
 			super.name = "Warrior";
 			super.health = 100;
-			super.damage = 50;
 			super.magic = 20;
-			super.defense = 50;
-			super.boost = 50;
-			super.weapon_damage = 60;
 			super.armor = 50;
-			super.intelligence = 50;
 			super.speed = 70;
 			super.strength = 60;
 			super.resistance = 60;

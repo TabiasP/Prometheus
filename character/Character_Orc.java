@@ -8,13 +8,8 @@ public class Character_Orc extends Character_Class {
 	public Character_Orc() {
 			super.name = "Orc";
 			super.health = 100;
-			super.damage = 60;
 			super.magic = 30;
-			super.defense = 80;
-			super.boost = 50;
-			super.weapon_damage = 80;
 			super.armor = 70;
-			super.intelligence = 10;
 			super.speed = 10;
 			super.strength = 90;
 			super.resistance = 30;

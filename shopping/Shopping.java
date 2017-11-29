@@ -4,23 +4,20 @@ import character.Character_Class;
 import java.util.Scanner;
 
 public class Shopping {
-	
-	
-	//dummy data - just to use for now.
-	//when Weapons class is created, change asdf to Weapons
-	private asdf[] weaponsStock = {new asdf("Sword", 350, "weapon"), new asdf("Knife", 50, "weapon"), new asdf("Dagger", 125, "weapon"), new asdf("Mace", 350, "weapon"), new asdf("Broken Stick", 5, "weapon")}; 
-	//when Items class is created, change asdf to Items
-	private asdf[] itemsStock = {new asdf("Health Potion", 150, "item"), new asdf("Mana Potion", 150, "item"), new asdf("Antidote", 100, "item"), new asdf("Energy Restore", 225, "item"), new asdf("Burn Heal", 250, "item")};	
+
+	private shopWeaponItem[] weaponsStock = {new shopWeaponItem("Sword Weapon", 350, "weapon", 1), new shopWeaponItem("Knife Weapon", 50, "weapon", 2), new shopWeaponItem("Dagger Weapon", 125, "weapon", 3), new shopWeaponItem("Mace Weapon", 350, "weapon", 5)}; 
+	private shopWeaponItem[] itemsStock = {new shopWeaponItem("Health Potion", 150, "item", 1), new shopWeaponItem("Mana Potion", 150, "item", 2), new shopWeaponItem("Antidote", 100, "item", 3), new shopWeaponItem("Energy Restore", 225, "item", 4), new shopWeaponItem("Burn Heal", 250, "item", 5)};	
 	
 	static Scanner input = new Scanner(System.in);
 	private String response = null;
 	private boolean currentlyHere, browsing = false; //using it for while loop so I don't have to use recursion
 	
 	
+	
 	public void store(Character_Class person) throws Exception{
 		if (currentlyHere == false){
 			System.out.println("Welcome to my store. Take a look at my wares.");
-			System.out.println("You currently have $" + person.getMoney() + "\n");
+			System.out.println("You are level " + person.getLevel() + " and you currently have $" + person.getMoney() + "\n");
 			try{
 				Thread.sleep(1000);
 			}
@@ -73,15 +70,16 @@ public class Shopping {
 			displayStock(weaponsStock);
 			response = input.nextLine();
 			switch (response.toString()){
-				case "0":	buyItem(person, weaponsStock[0].getName(), weaponsStock[0].getPrice()); //Sword
+			
+				case "0":	buyItem(person, weaponsStock[0].getName(), weaponsStock[0].getPrice(), weaponsStock[0].getRequiredLevel()); //Sword
 							break;
-				case "1":	buyItem(person, weaponsStock[1].getName(), weaponsStock[1].getPrice()); //Knife
+				case "1":	buyItem(person, weaponsStock[1].getName(), weaponsStock[1].getPrice(), weaponsStock[1].getRequiredLevel()); //Knife
 							break;
-				case "2":	buyItem(person, weaponsStock[2].getName(), weaponsStock[2].getPrice()); //Dagger
+				case "2":	buyItem(person, weaponsStock[2].getName(), weaponsStock[2].getPrice(), weaponsStock[2].getRequiredLevel()); //Dagger
 							break;
-				case "3":	buyItem(person, weaponsStock[3].getName(), weaponsStock[3].getPrice()); //Mace
+				case "3":	buyItem(person, weaponsStock[3].getName(), weaponsStock[3].getPrice(), weaponsStock[3].getRequiredLevel()); //Mace
 							break;
-				case "4":	buyItem(person, weaponsStock[4].getName(), weaponsStock[4].getPrice()); //Broken Stick
+				case "4":	buyItem(person, weaponsStock[4].getName(), weaponsStock[4].getPrice(), weaponsStock[4].getRequiredLevel()); //Broken Stick
 							break;
 				case "9":
 				case "exit":
@@ -93,6 +91,7 @@ public class Shopping {
 		}	
 	}
 	
+	
 	//Displays weapons then switch statement to handle player choices
 	public void browseItems(Character_Class person) throws Exception{
 		System.out.println("Items:"); // (Number to Buy) [Price] - [Item]
@@ -102,15 +101,15 @@ public class Shopping {
 			displayStock(itemsStock);
 			response = input.nextLine();
 			switch (response.toString()){
-				case "0":	buyItem(person, itemsStock[0].getName(), itemsStock[0].getPrice()); //"Health Potion"
+				case "0":	buyItem(person, itemsStock[0].getName(), itemsStock[0].getPrice(), itemsStock[0].getRequiredLevel()); //"Health Potion"
 							break;
-				case "1":	buyItem(person, itemsStock[1].getName(), itemsStock[1].getPrice()); //"Mana Potion"
+				case "1":	buyItem(person, itemsStock[1].getName(), itemsStock[1].getPrice(), itemsStock[1].getRequiredLevel()); //"Mana Potion"
 							break;
-				case "2":	buyItem(person, itemsStock[2].getName(), itemsStock[2].getPrice()); //"Antidote"
+				case "2":	buyItem(person, itemsStock[2].getName(), itemsStock[2].getPrice(), itemsStock[2].getRequiredLevel()); //"Antidote"
 							break;
-				case "3":	buyItem(person, itemsStock[3].getName(), itemsStock[3].getPrice()); //"Energy Restore"
+				case "3":	buyItem(person, itemsStock[3].getName(), itemsStock[3].getPrice(), itemsStock[3].getRequiredLevel()); //"Energy Restore"
 							break;
-				case "4":	buyItem(person, itemsStock[4].getName(), itemsStock[4].getPrice()); //"Burn Repel"
+				case "4":	buyItem(person, itemsStock[4].getName(), itemsStock[4].getPrice(), itemsStock[4].getRequiredLevel()); //"Burn Repel"
 							break;
 				case "9":
 				case "exit":
@@ -126,10 +125,10 @@ public class Shopping {
 	 * Display Stock
 	 */
 	
-	public void displayStock(asdf[] stock){
+	public void displayStock(shopWeaponItem[] stock){
 		System.out.println();
 		for(int index = 0; index < weaponsStock.length; index++){
-			System.out.println("("+ index +") "+  stock[index].getPrice() + " - "+ stock[index].getName() );
+			System.out.println("("+ index +") "+  stock[index].getPrice() + " - "+ stock[index].getName() + " - " + "You must be Level " + stock[index].getRequiredLevel() + " to purchase.");
 		}
 		System.out.println("(9) Back to Store Menu");
 	}
@@ -137,12 +136,15 @@ public class Shopping {
 	/*
 	 * Buy Item
 	 */
-	public void buyItem(Character_Class person, String item, int price) throws Exception{ //change String item to shopstock or whatever when I figure out how to implement.
-		if(person.getMoney() >= price){
+	public void buyItem(Character_Class person, String item, int price, int requiredLevel) throws Exception{ //change String item to shopstock or whatever when I figure out how to implement.
+		if(person.getMoney() >= price && person.getLevel() >= requiredLevel){
 			person.setMoney(person.getMoney() - price);
 			person.backpack.addToInventory(item, 1);//add item to inventory
 			System.out.println("Here's your " + item);
 			System.out.println("You have $" + person.getMoney() + " left. \n Would you like anything else? \n");
+		}
+		else if(person.getMoney() >= price && person.getLevel() < requiredLevel){
+			System.out.println("You don't meet the level requirements for this purchase");
 		}
 		else {
 			System.out.println("Not enough gold. \nMaybe try farming a local dungeon. Probably some thieves still around.");
@@ -171,54 +173,23 @@ public class Shopping {
 	}
 	
 	/*
-	public Weapons[] getWeaponsStock(){
-		return weaponsStock;
-	}
-	
-	public Items[] getItemsStock(){
-		return itemsStock;
-	}
-	*/
-	
-	/*
-	public void selectOption(String choice){
-		if (choice == "1")		//Weapons selection
-			System.out.println();
-		else if (choice == "2")	//Items selection
-			System.out.println();
-		else if (choice == "3")	//Back to main selection
-			System.out.println();
-	}	
-	*/
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	/*
 	 * JUNK CLASS FOR JUNK OBJECTS FOR JUNK INFORMATION  <-- DELETE AS SOON REAL WEAPONS AND ITEMS ARE MADE
 	 */
-	
-	class asdf {
+	class shopWeaponItem {
 		private String name; //name
 		private int price;   //gold price
 		private String type; //item or weapon
+		private int requiredLevel; //required level to purchase weapon
 		
-		asdf(){
+		shopWeaponItem(){
 		}
 		
-		//Constructor - 3 accepted arguments
-		asdf(String name, int price, String type){
+		//Constructor - 4 accepted arguments
+		shopWeaponItem(String name, int price, String type, int requiredLevel){
 			this.name = name;
 			this.price = price;
 			this.type = type;
+			this.requiredLevel = requiredLevel;
 		}
 		
 		public String getName(){
@@ -232,6 +203,11 @@ public class Shopping {
 		public String getType(){
 			return this.type;
 		}
+		
+		public int getRequiredLevel() {
+			return this.requiredLevel;
+		}
+	
 		
 	}
 }
