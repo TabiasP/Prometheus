@@ -30,29 +30,41 @@ public class Character_Select {
 					}input.nextLine();
 			}
 			if(response == 1) {
+				
 				Character_Warrior character = new Character_Warrior();
-				System.out.println("You have chosen to be a Warrior");
-				return character;
+				displayWarriorChars(character);
+				if(confirmCharacter()){
+					return character;
+				}
+				
 			}
 			else if(response == 2) {
 				Character_Orc character = new Character_Orc();
 				System.out.println("You have chosen to be an Orc");
-				return character;
+				if(confirmCharacter()){
+					return character;
+				}
 			}
 			else if(response == 3) {
 				Character_Wizard character = new Character_Wizard();
 				System.out.println("You have chosen to be a Wizard");
-				return character;
+				if(confirmCharacter()){
+					return character;
+				}
 			}
 			else if(response == 4) {
 				Character_Elf character = new Character_Elf();
 				System.out.println("You have chosen to be an Elf");
-				return character;
+				if(confirmCharacter()){
+					return character;
+				}
 			}
 			else if(response == 5) {
 				Character_Dwarf character = new Character_Dwarf();
 				System.out.println("You have chosen to be a Dwarf");
-				return character;
+				if(confirmCharacter()){
+					return character;
+				}
 			}
 			else {
 				System.out.println("Invalid Response. Please enter a number from the list above.");
@@ -60,4 +72,64 @@ public class Character_Select {
 				}
 			return null;
 			}
+	
+	       private static boolean confirmCharacter() {
+	    	   boolean character = false;
+	    		System.out.println("Would you like to continue with the character?Y/N");
+			    String confirm_flag = input.next();	
+			    if(confirm_flag.equalsIgnoreCase("Y")){				    	
+			    	character= true;
+			    }else  if(confirm_flag.equalsIgnoreCase("N")){				    	
+			    	character_Select();
+			    }else{
+			    	System.out.println("Please enter a valid inputY/N");
+			    	   confirm_flag = input.next();	
+			    	   if(confirm_flag.equalsIgnoreCase("Y")){				    	
+			    		   character= true;
+					    }else  if(confirm_flag.equalsIgnoreCase("N")){				    	
+					    	character_Select();
+					    }
+			    }
+				
+				return character;
+		
+		
+	}
+
+		public static void displayWarriorChars (Character_Warrior warrior){			
+		
+		    System.out.println("You have chosen to be a Warrior");
+		    if (warrior != null){	
+		    System.out.println ("\n-----------------------------");
+		    System.out.println ("Charecter-Traits");
+		    System.out.println ("-----------------------------");
+		    System.out.format("%10s%15s%15s%15s%20s", "Speak", "Speed", "Strength", "Health", "Intelligence");
+		    System.out.println ("");		    		   
+		    System.out.format ("%10s%15s%15s%15s%20s", ""+warrior.speak, warrior.speed, warrior.strength, ""+warrior.health, warrior.intelligence);
+		    System.out.println ("");
+		    System.out.println ("\n-----------------------------");
+		    System.out.println ("Defense");
+		    System.out.println ("-----------------------------");
+		    System.out.format("%10s%15s%15s%15s%20s", "Armor", "Boost", "Damage", "Defense", "Resistance");
+		    System.out.println ("");		       
+		    System.out.format ("%10s%15s%15s%15s%20s", ""+warrior.armor, warrior.boost, warrior.damage, ""+warrior.defense, warrior.resistance);
+		    System.out.println ("");	
+		
+		    System.out.println ("\n-----------------------------");
+		    System.out.println ("Weapons");
+		    System.out.println ("-----------------------------");
+		    System.out.format("%10s%15s%15s%15s%20s", "Primary weapon damage", "  Primary weapon", " Weapon damage", " Secondary weapon damage", "Secondary weapon");
+		    System.out.println ("");		       
+		    System.out.format ("%10s%25s%10s%20s%20s", ""+warrior.primary_weapon_damage, warrior.primaryWeapon, warrior.weapon_damage, ""+warrior.secondary_weapon_damage, warrior.secondaryWeapon);
+		    System.out.println ("");
+		    
+		    System.out.println ("\n-----------------------------");
+		    System.out.println ("Miscellaneous");
+		    System.out.println ("-----------------------------");
+		    System.out.format("%10s%15s", "Magic","Money");
+		    System.out.println ("");		       
+		    System.out.format ("%10s%15s", warrior.magic, warrior.money);
+		    System.out.println ("");
+		    }
+	      }
 		}
