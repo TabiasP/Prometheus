@@ -237,7 +237,7 @@ public class Battle_System {
 						}
 						
 						else if (menu_selection == 3){
-							player.backpack.viewInventory();
+							player.backpack.viewInventory(); //Display weapons
 							int response = input.nextInt();
 							player.setPrimaryWeapon(player.backpack.selectWeapon(response));
 							menu_selection = 0;
@@ -386,6 +386,8 @@ public class Battle_System {
 		 else if(character_health > enemy_health){ // If the your health is more than the enemies before it reaches 0, you win. 				 
 				 /*Displays the remaining health after battle is over. */
 				 System.out.println("You Have "+character_health+" Health Points Remaining.\n ");
+				 System.out.println("You have gained experience.\n");
+				 player.levelUp(20);
 				
 				 try{
 					 Thread.sleep(3000); //Sleep timer of 3 seconds. 

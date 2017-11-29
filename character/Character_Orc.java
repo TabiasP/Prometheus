@@ -8,19 +8,41 @@ public class Character_Orc extends Character_Class {
 	public Character_Orc() {
 			super.name = "Orc";
 			super.health = 100;
-			super.damage = 60;
 			super.magic = 30;
-			super.defense = 80;
-			super.boost = 50;
-			super.weapon_damage = 80;
 			super.armor = 70;
-			super.intelligence = 10;
 			super.speed = 10;
 			super.strength = 90;
 			super.resistance = 30;
 	}
 		
 		// END NEW CONSTRUCTOR.
+	
+	public void levelUp(int exp1) {
+		exp = exp1;
+		while(true) {
+			if(getLevel() >= 10) {
+				break;
+			}
+			else{
+				if(exp >= MAX_EXP) {
+					exp -= MAX_EXP;
+				}
+				if(exp < 0) {
+					exp = 0;
+				}
+				level++;
+				MAX_EXP += 50;
+				health += 19;
+				health = getHealth();
+				armor += 7;
+				magic += 7;
+				speed += 3;
+				strength += 11;
+				resistance += 9;
+				System.out.println("You have leveled up!");
+			}
+		}
+	}
 	
 	public String getSpeak(){
 		return "I am an Orc";
