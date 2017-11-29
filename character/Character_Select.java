@@ -40,28 +40,28 @@ public class Character_Select {
 			}
 			else if(response == 2) {
 				Character_Orc character = new Character_Orc();
-				System.out.println("You have chosen to be an Orc");
+				displayOrcChars(character);
 				if(confirmCharacter()){
 					return character;
 				}
 			}
 			else if(response == 3) {
 				Character_Wizard character = new Character_Wizard();
-				System.out.println("You have chosen to be a Wizard");
+				displayWizardChars(character);
 				if(confirmCharacter()){
 					return character;
 				}
 			}
 			else if(response == 4) {
 				Character_Elf character = new Character_Elf();
-				System.out.println("You have chosen to be an Elf");
+				displayElfChars(character);
 				if(confirmCharacter()){
 					return character;
 				}
 			}
 			else if(response == 5) {
 				Character_Dwarf character = new Character_Dwarf();
-				System.out.println("You have chosen to be a Dwarf");
+				displayDwarfChars(character);
 				if(confirmCharacter()){
 					return character;
 				}
@@ -82,7 +82,7 @@ public class Character_Select {
 			    }else  if(confirm_flag.equalsIgnoreCase("N")){				    	
 			    	character_Select();
 			    }else{
-			    	System.out.println("Please enter a valid inputY/N");
+			    	System.out.println("Please enter valid input?Y/N");
 			    	   confirm_flag = input.next();	
 			    	   if(confirm_flag.equalsIgnoreCase("Y")){				    	
 			    		   character= true;
@@ -131,5 +131,150 @@ public class Character_Select {
 		    System.out.format ("%10s%15s", warrior.magic, warrior.money);
 		    System.out.println ("");
 		    }
+		    }
+		    public static void displayOrcChars (Character_Orc orc){			
+				
+			    System.out.println("You have chosen to be an Orc");
+			    if (orc != null){	
+			    System.out.println ("\n-----------------------------");
+			    System.out.println ("Charecter-Traits");
+			    System.out.println ("-----------------------------");
+			    System.out.format("%10s%15s%15s%15s%20s", "Speak", "Speed", "Strength", "Health", "Intelligence");
+			    System.out.println ("");		    		   
+			    System.out.format ("%10s%15s%15s%15s%20s", ""+orc.speak, orc.speed, orc.strength, ""+orc.health, orc.intelligence);
+			    System.out.println ("");
+			    System.out.println ("\n-----------------------------");
+			    System.out.println ("Defense");
+			    System.out.println ("-----------------------------");
+			    System.out.format("%10s%15s%15s%15s%20s", "Armor", "Boost", "Damage", "Defense", "Resistance");
+			    System.out.println ("");		       
+			    System.out.format ("%10s%15s%15s%15s%20s", ""+orc.armor, orc.boost, orc.damage, ""+orc.defense, orc.resistance);
+			    System.out.println ("");	
+			
+			    System.out.println ("\n-----------------------------");
+			    System.out.println ("Weapons");
+			    System.out.println ("-----------------------------");
+			    System.out.format("%10s%15s%15s%15s%20s", "Primary weapon damage", "  Primary weapon", " Weapon damage", " Secondary weapon damage", "Secondary weapon");
+			    System.out.println ("");		       
+			    System.out.format ("%10s%25s%10s%20s%20s", ""+orc.primary_weapon_damage, orc.primaryWeapon, orc.weapon_damage, ""+orc.secondary_weapon_damage, orc.secondaryWeapon);
+			    System.out.println ("");
+			    
+			    System.out.println ("\n-----------------------------");
+			    System.out.println ("Miscellaneous");
+			    System.out.println ("-----------------------------");
+			    System.out.format("%10s%15s", "Magic","Money");
+			    System.out.println ("");		       
+			    System.out.format ("%10s%15s", orc.magic, orc.money);
+			    System.out.println ("");
+			    }
 	      }
+public static void displayWizardChars (Character_Wizard wizard){			
+				
+			    System.out.println("You have chosen to be an Wizard");
+			    if (wizard != null){	
+			    System.out.println ("\n-----------------------------");
+			    System.out.println ("Charecter-Traits");
+			    System.out.println ("-----------------------------");
+			    System.out.format("%10s%15s%15s%15s%20s", "Speak", "Speed", "Strength", "Health", "Intelligence");
+			    System.out.println ("");		    		   
+			    System.out.format ("%10s%15s%15s%15s%20s", ""+wizard.speak, wizard.speed, wizard.strength, ""+wizard.health, wizard.intelligence);
+			    System.out.println ("");
+			    System.out.println ("\n-----------------------------");
+			    System.out.println ("Defense");
+			    System.out.println ("-----------------------------");
+			    System.out.format("%10s%15s%15s%15s%20s", "Armor", "Boost", "Damage", "Defense", "Resistance");
+			    System.out.println ("");		       
+			    System.out.format ("%10s%15s%15s%15s%20s", ""+wizard.armor, wizard.boost, wizard.damage, ""+wizard.defense, wizard.resistance);
+			    System.out.println ("");	
+			
+			    System.out.println ("\n-----------------------------");
+			    System.out.println ("Weapons");
+			    System.out.println ("-----------------------------");
+			    System.out.format("%10s%15s%15s%15s%20s", "Primary weapon damage", "  Primary weapon", " Weapon damage", " Secondary weapon damage", "Secondary weapon");
+			    System.out.println ("");		       
+			    System.out.format ("%10s%25s%10s%20s%20s", ""+wizard.primary_weapon_damage, wizard.primaryWeapon, wizard.weapon_damage, ""+wizard.secondary_weapon_damage, wizard.secondaryWeapon);
+			    System.out.println ("");
+			    
+			    System.out.println ("\n-----------------------------");
+			    System.out.println ("Miscellaneous");
+			    System.out.println ("-----------------------------");
+			    System.out.format("%10s%15s", "Magic","Money");
+			    System.out.println ("");		       
+			    System.out.format ("%10s%15s", wizard.magic, wizard.money);
+			    System.out.println ("");
+			    }
+	      }
+
+public static void displayElfChars (Character_Elf elf){			
+	
+    System.out.println("You have chosen to be an Elf");
+    if (elf != null){	
+    System.out.println ("\n-----------------------------");
+    System.out.println ("Charecter-Traits");
+    System.out.println ("-----------------------------");
+    System.out.format("%10s%15s%15s%15s%20s", "Speak", "Speed", "Strength", "Health", "Intelligence");
+    System.out.println ("");		    		   
+    System.out.format ("%10s%15s%15s%15s%20s", ""+elf.speak, elf.speed, elf.strength, ""+elf.health, elf.intelligence);
+    System.out.println ("");
+    System.out.println ("\n-----------------------------");
+    System.out.println ("Defense");
+    System.out.println ("-----------------------------");
+    System.out.format("%10s%15s%15s%15s%20s", "Armor", "Boost", "Damage", "Defense", "Resistance");
+    System.out.println ("");		       
+    System.out.format ("%10s%15s%15s%15s%20s", ""+elf.armor, elf.boost, elf.damage, ""+elf.defense, elf.resistance);
+    System.out.println ("");	
+
+    System.out.println ("\n-----------------------------");
+    System.out.println ("Weapons");
+    System.out.println ("-----------------------------");
+    System.out.format("%10s%15s%15s%15s%20s", "Primary weapon damage", "  Primary weapon", " Weapon damage", " Secondary weapon damage", "Secondary weapon");
+    System.out.println ("");		       
+    System.out.format ("%10s%25s%10s%20s%20s", ""+elf.primary_weapon_damage, elf.primaryWeapon, elf.weapon_damage, ""+elf.secondary_weapon_damage, elf.secondaryWeapon);
+    System.out.println ("");
+    
+    System.out.println ("\n-----------------------------");
+    System.out.println ("Miscellaneous");
+    System.out.println ("-----------------------------");
+    System.out.format("%10s%15s", "Magic","Money");
+    System.out.println ("");		       
+    System.out.format ("%10s%15s", elf.magic, elf.money);
+    System.out.println ("");
+    }
+}
+public static void displayDwarfChars (Character_Dwarf dwarf){			
+	
+    System.out.println("You have chosen to be a Dwarf");
+    if (dwarf != null){	
+    System.out.println ("\n-----------------------------");
+    System.out.println ("Charecter-Traits");
+    System.out.println ("-----------------------------");
+    System.out.format("%10s%15s%15s%15s%20s", "Speak", "Speed", "Strength", "Health", "Intelligence");
+    System.out.println ("");		    		   
+    System.out.format ("%10s%15s%15s%15s%20s", ""+dwarf.speak, dwarf.speed, dwarf.strength, ""+dwarf.health, dwarf.intelligence);
+    System.out.println ("");
+    System.out.println ("\n-----------------------------");
+    System.out.println ("Defense");
+    System.out.println ("-----------------------------");
+    System.out.format("%10s%15s%15s%15s%20s", "Armor", "Boost", "Damage", "Defense", "Resistance");
+    System.out.println ("");		       
+    System.out.format ("%10s%15s%15s%15s%20s", ""+dwarf.armor, dwarf.boost, dwarf.damage, ""+dwarf.defense, dwarf.resistance);
+    System.out.println ("");	
+
+    System.out.println ("\n-----------------------------");
+    System.out.println ("Weapons");
+    System.out.println ("-----------------------------");
+    System.out.format("%10s%15s%15s%15s%20s", "Primary weapon damage", "  Primary weapon", " Weapon damage", " Secondary weapon damage", "Secondary weapon");
+    System.out.println ("");		       
+    System.out.format ("%10s%25s%10s%20s%20s", ""+dwarf.primary_weapon_damage, dwarf.primaryWeapon, dwarf.weapon_damage, ""+dwarf.secondary_weapon_damage, dwarf.secondaryWeapon);
+    System.out.println ("");
+    
+    System.out.println ("\n-----------------------------");
+    System.out.println ("Miscellaneous");
+    System.out.println ("-----------------------------");
+    System.out.format("%10s%15s", "Magic","Money");
+    System.out.println ("");		       
+    System.out.format ("%10s%15s", dwarf.magic, dwarf.money);
+    System.out.println ("");
+    }
+}
 		}
